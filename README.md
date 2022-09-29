@@ -1,4 +1,4 @@
-# ML Project Template
+![alt text](photos/project_header.png)
 
 This project contains a blueprint of a production ML structure. Also can guide a user how to organize their code to follow CI/CD best practices.
 The structure is designed to support a project with multiple data sources, models and ML pipelines.
@@ -23,7 +23,7 @@ So, before go into project structure details let's give a look of a CI/CD.
 * **Python Virtual Environment**: Pyenv/Conda
 
 ***NOTE:** The blueprint example is based on Python but can be generallized in every modern object oriented language*
-# CI/CD Flow Suggestion
+# CI/CD Flow Suggestion :factory:
 The first thing before start describing the CI/CD pipelines, is to establish the
 CI/CD strategy of the project. Also, it's worth to mention that production based applications should have different enviroments for testing defore the final deployment.
 For that purpose, we are suggesting to use the following environments:
@@ -35,7 +35,8 @@ Usually it's only open to development team and key stake holders for their testi
 
 ![alt text](photos/cicd_flow.png)
 
-***NOTE:** The below CI/CD flow is also a blueprint. Each project has specific needs and compliance policies which has to follow*
+***NOTE 1:** The below CI/CD flow is also a blueprint. Each project has specific needs and compliance policies which has to follow*
+***NOTE 2:** The below CI/CD flow does not contain the model train/re-train because its a different process. Will described in different section*
 
 
   * **Continues Integration (CI)**
@@ -57,7 +58,7 @@ Usually it's only open to development team and key stake holders for their testi
       * Deploy the release Docker image in Production env
 
 
-# Structure
+# Project Structure :oncoming_automobile:
 
 In high level the main components of a ML production project are:
 
@@ -172,3 +173,8 @@ The full structure of the project is:
         |-- run.py                 <-- This is the application CLI.
                                        By providing different command line arguments we can run different pipelines.
 ```
+
+# Contributing
+Pull Requests (PRs) are welcome ☺️!
+# Thanks!
+Thanks for your time! This repo is trying to be generic and cover the basics without beeing too complex! Cheers 🍻
