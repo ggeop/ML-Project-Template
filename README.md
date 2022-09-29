@@ -82,38 +82,49 @@ The full structure of the project is:
 |   |   |-- utils/                 <-- A placeholder directory. Can be used for generic scripts which can be leveraged from both build/release
 |   |   |-- docker/
 |   |   |  |-- .dockerignore
-|   |   |  |-- Dockerfile          <-- This Dockerfile will create the build image for testing. It will contain source code, tests, Sonar (if used) etc
+|   |   |  |-- Dockerfile          <-- This Dockerfile will create the build image for testing.
+|   |   |                               It will contain source code, tests, Sonar (if used) etc
 |   |   |-- build.sh               <-- This is the main script for the build process
 |   |-- release/
 |       |-- docker/
 |       |   |-- .dockerignore
-|       |   |-- Dockerfile         <-- This Dockerfile will create the release image. This image will be the final image with the Python package (not source code, tests, Sonar etc)
+|       |   |-- Dockerfile         <-- This Dockerfile will create the release image. 
+|       |                              This image will be the final image with the Python package (not source code, tests, Sonar etc)
 |       |-- release.sh
 |-- src/                          
     |-- MANIFEST.in                <--|
     |-- pyproject.toml             <--|
-    |-- setup.py                   <--|__ These files are used for Python package build (.whl file) | More info found: https://packaging.python.org/en/latest/tutorials/packaging-projects/
+    |-- setup.py                   <--|__ These files are used for Python package build (.whl file)
+    |                                     More info found: https://packaging.python.org/en/latest/tutorials/packaging-projects/
     |-- requirements/              <-- This folder contains all the project requirements. For now have only 2 files for pip install.
     |   |-- default.txt            <-- Contains all the project requirements which need to be downloaded e.g Numpy, Pandas, Sklearn
-    |   |-- dev.txt                <-- Contains the extra requirements which needed only in development env and not in production e.g flake8, pylint
+    |   |-- dev.txt                <-- Contains the extra requirements which needed only in development env and not in production
+    |                                  For example flake8, pylint
     |-- tests/                     <-- This package contains all the unittests and integration tests.
     |   |-- __init__.py
     |   |-- .coveragerc            <-- Unittest coverage configuration
-    |   |-- unit/                  <-- This module contains all the unittests. Tests which test specific components (side effects are mocked)
+    |   |-- unit/                  <-- This module contains all the unittests.
+    |                                  Tests which test specific components (side effects are mocked)
     |   |   |-- __init__.py
     |   |   |-- ...
-    |   |-- integration/          <-- This module contains all integration tests. Tests which test the whole application behaviour wihtout mocking side effects
+    |   |-- integration/          <-- This module contains all integration tests.
+    |   |                             Tests which test the whole application behaviour wihtout mocking side effects
     |   |   |-- __init__.py
     |   |   |-- ...        
-    |   |-- run_tests.py           <-- Run tests cli. All the tests run from here by passing different arguments e.g --test_type --intergration or --test_type --unit
-    |-- <PYTHON_PACKAGE_NAME>      <-- Replace the <PYTHON_PACKAGE_NAME> with your project package name. Don't forget to follow the PEP8 Python package name convention: https://visualgit.readthedocs.io/en/latest/pages/naming_convention.html#packages
+    |   |-- run_tests.py           <-- Run tests cli. All the tests run from here by passing different arguments.
+    |                                  For example, python run_tests.py --test_type --intergration
+    |-- <PYTHON_PACKAGE_NAME>      <-- Replace the <PYTHON_PACKAGE_NAME> with your project package name.
+        |                              Don't forget to follow the PEP8 Python package name convention:
+        |                              https://visualgit.readthedocs.io/en/latest/pages/naming_convention.html#packages
         |-- __init__.py 
         |-- data_loaders/           <-- This package contains different data loaders for different sources, e.g CSV files, SQL
         |   |-- __init__.py          
         |   |-- data_loader.py      <-- This module is the abstarct data loader. All the other data_loaders are implementations.
-        |   |-- csv_data_loader.py  <-- This module is a specific implementation of the DataLoader() class. The naming convention of the implementation is xxx_data_loader.py
+        |   |-- csv_data_loader.py  <-- This module is a specific implementation of the DataLoader() class.
+        |   |                           The naming convention of the implementation is xxx_data_loader.py
         |   |-- ...
-        |-- models/                 <-- This package contains different packages of different models. The models are separated by general model families type e.g regression, boosting ..
+        |-- models/                 <-- This package contains different packages of different models. 
+        |   |                           The models are separated by general model families type e.g regression, boosting ..
         |   |-- __init__.py
         |   |-- common/             <-- This package contains common scripts/helpers between different models.
         |   |   |-- __init__.py
@@ -152,10 +163,12 @@ The full structure of the project is:
         |   |-- build_features_two/
         |       |-- __init__.py
         |       |-- tokenizer.py
-        |-- pipelines/              <-- This package contains all the "modes" the application can run. In a pipeline we merge, all the classed from models and features and we create pipelines
+        |-- pipelines/              <-- This package contains all the "modes" the application can run.
+        |   |                           In a pipeline we merge, all the classed from models and features and we create pipelines
         |   |-- __init__.py
         |   |-- train.py
         |   |-- predict.py
         |   |-- evaluate.py
-        |-- run.py                 <-- This is the application CLI. By providing different command line arguments we can run different pipelines.
+        |-- run.py                 <-- This is the application CLI.
+                                       By providing different command line arguments we can run different pipelines.
 ```
