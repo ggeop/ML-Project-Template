@@ -1,0 +1,33 @@
+# Copyright © Citrix Systems, Inc. All rights reserved.
+# --------------------------------------------------
+# .coveragerc to control coverage.py
+# --------------------------------------------------
+
+# --------------------------------------------------
+# .coveragerc to control coverage.py
+# --------------------------------------------------
+[run]
+# branch (boolean, default False): Whether to measure branch coverage in addition to statement coverage.
+branch = True
+
+[report]
+omit = 
+    */__init__.py
+
+exclude_lines =
+    # -------------------------------------
+    # Any line with a comment of “pragma: no cover” is excluded
+    # NOTE: If that line introduces a clause. For example, an if clause,
+    # or a function or class definition, then the entire clause is also excluded
+    # -------------------------------------
+    pragma: no cover
+
+    # -------------------------------------
+    # Standard excluded lines
+    # -------------------------------------
+    def __repr__
+    if self.debug:
+    if settings.DEBUG
+    raise AssertionError
+    raise NotImplementedError
+    if __name__ == .__main__.:

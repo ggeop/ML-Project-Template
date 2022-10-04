@@ -1,0 +1,7 @@
+
+# Python dependencies for packaging and test coverage
+build==0.7.0
+coverage==6.2
+
+# Add the other dependencies below (e.g pandas)
+# ..

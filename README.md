@@ -18,9 +18,9 @@ For this reason, the modern CI/CD practices are more relevant than ever.
 So, before go into project structure details let's give a look of a CI/CD.
 
 # Suggested Technology Stack
-* **Running Environment**: Docker/AKS
-* **Programming language**: Python
-* **Python Virtual Environment**: Pyenv/Conda
+* **Running Environment**: [Docker](https://www.docker.com/)/[AKS](https://kubernetes.io/)
+* **Programming language**: [Python](https://www.python.org/)
+* **Python Virtual Environment**: [Pyenv](https://github.com/pyenv/pyenv)/[Conda](https://docs.conda.io/en/latest/)
 
 ***NOTE:** The blueprint example is based on Python but can be generallized in every modern object oriented language*
 # CI/CD Flow Suggestion :factory:
@@ -59,17 +59,24 @@ Usually it's only open to development team and key stake holders for their testi
 
 
 # Project Structure :oncoming_automobile:
+The template structure is placed under [project_template](https://github.com/ggeop/ML-Project-Template/tree/main/project_template) directory. 
+***NOTE 1:** The template structure contains only the generic directories/files of the project.*
+***NOTE 2:** The files are empty but few of them are populated with generic content e.g pyproject.toml, .gitignore*
 
 In high level the main components of a ML production project are:
 
 ```
-|-- cicd        <-- CI/CD (packaging, scripts & configurations)
-|-- notebooks   <-- Explanatory analysis & new models POC
-|-- tests       <-- Code testing (unit & integration)
-|-- src         <-- Source code for production use
+|-- cicd              <-- CI/CD (packaging, scripts & configurations)
+|-- notebooks         <-- Explanatory analysis & new models POC
+|-- src               <-- Source code for production use
+  |-- PYTHON PACKAGE  <-- Project Python package
+  |-- requirements    <-- Python dependencies (usually external libraries, e.g Pandas)
+  |-- tests           <-- Code testing (unit & integration)
 ```
 
-The full structure of the project is:
+***NOTE:** Don't forget to replace <PYTHON PACKAGE> with your project package name*
+
+Below there is an example with few extra modules and descriptions in order to make more clear the ideal structure.
 ```
 |-- LICENCE
 |-- README.md                     <-- General project README with instructions for project running & installation.
@@ -114,7 +121,7 @@ The full structure of the project is:
     |   |   |-- ...        
     |   |-- run_tests.py           <-- Run tests cli. All the tests run from here by passing different arguments.
     |                                  For example, python run_tests.py --test_type --intergration
-    |-- <PYTHON_PACKAGE_NAME>      <-- Replace the <PYTHON_PACKAGE_NAME> with your project package name.
+    |-- <PYTHON_PACKAGE>           <-- Replace the <PYTHON_PACKAGE> with your project package name.
         |                              Don't forget to follow the PEP8 Python package name convention:
         |                              https://visualgit.readthedocs.io/en/latest/pages/naming_convention.html#packages
         |-- __init__.py 
@@ -173,6 +180,8 @@ The full structure of the project is:
         |-- run.py                 <-- This is the application CLI.
                                        By providing different command line arguments we can run different pipelines.
 ```
+
+:bulb: Also take a look on my other project ([Multiple Fields Management](https://github.com/ggeop/Multiple-Fields-Management)) for managing multiple fields from different data sources
 
 # Contributing
 Pull Requests (PRs) are welcome ☺️!
