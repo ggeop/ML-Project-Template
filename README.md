@@ -36,7 +36,6 @@ Usually it's only open to development team and key stake holders for their testi
 ![alt text](photos/cicd_flow.png)
 
 ***NOTE 1:** The below CI/CD flow is also a blueprint. Each project has specific needs and compliance policies which has to follow*
-***NOTE 2:** The below CI/CD flow does not contain the model train/re-train because its a different process. Will described in different section*
 
 
   * **Continues Integration (CI)**
@@ -56,7 +55,6 @@ Usually it's only open to development team and key stake holders for their testi
     * **Continues Delivery (CD)**
       * Add a tag `Production` in the `Staging` commit
       * Deploy the release Docker image in Production env
-
 
 # Project Structure :oncoming_automobile:
 The template structure is placed under [project_template](https://github.com/ggeop/ML-Project-Template/tree/main/project_template) directory. 
@@ -175,14 +173,20 @@ Below there is an example with few extra modules and descriptions in order to ma
         |   |                           In a pipeline we merge, all the classed from models and features and we create pipelines
         |   |-- __init__.py
         |   |-- train.py
-        |   |-- predict.py
         |   |-- evaluate.py
+        |   |-- predict.py
         |-- run.py                 <-- This is the application CLI.
                                        By providing different command line arguments we can run different pipelines.
 ```
 
 :bulb: Also take a look on my other project ([Multiple Fields Management](https://github.com/ggeop/Multiple-Fields-Management)) for managing multiple fields from different data sources
 
+# ML Pipelines & Retraining
+We summarize how the above structure with the three application-modes/pipelines (train, evaluate, predict) can be used and what outputs we expect
+![alt text](photos/ml_pipelines.jpg)
+
+Finally, we suggest a retraining strategy which combines the  training and evaluate pipeline and triggered when there is a drift in training data
+![alt text](photos/automated_retraining_strategy.jpg)
 # Contributing
 Pull Requests (PRs) are welcome ☺️!
 # Thanks!
